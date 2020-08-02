@@ -3,7 +3,7 @@ extends KinematicBody2D
 var playerVelocity = Vector2(0.0,0.0)
 var jumpForce = 270.0
 var jumped = false
-var speed = 150
+var speed = 350
 
 func _physics_process(delta: float) -> void:
 	playerVelocity.y += 5.0
@@ -12,7 +12,6 @@ func _physics_process(delta: float) -> void:
 		playerVelocity.x = speed
 		get_node("playerSprite").flip_h = false
 		get_node("playerSprite").play("run")
-		
 
 	elif(Input.is_action_pressed("move_left")):
 		playerVelocity.x = -speed
@@ -32,4 +31,7 @@ func _physics_process(delta: float) -> void:
 			playerVelocity = Vector2.UP * jumpForce
 			jumped = true
 
+	if(Input.is_action_just_released("attack")):
+		get_node("playerSprite").play("attack")
+		
 	playerVelocity = move_and_slide(playerVelocity,Vector2.UP)
