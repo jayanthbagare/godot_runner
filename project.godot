@@ -17,6 +17,12 @@ _global_script_class_icons={
 
 config/name="Endless Runner"
 
+[display]
+
+window/size/width=1280
+window/size/height=800
+window/dpi/allow_hidpi=true
+
 [input]
 
 move_right={

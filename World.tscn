@@ -1,30 +1,34 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/background/bg_forest_5.png" type="Texture" id=1]
 [ext_resource path="res://assets/background/bg_forest_4.png" type="Texture" id=2]
 [ext_resource path="res://assets/background/bg_forest_3.png" type="Texture" id=3]
-[ext_resource path="res://assets/background/bg_forest_1.png" type="Texture" id=4]
-[ext_resource path="res://assets/background/bg_forest_2.png" type="Texture" id=5]
-[ext_resource path="res://assets/background/tileset.png" type="Texture" id=6]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/background/bg_forest_2.png" type="Texture" id=4]
+[ext_resource path="res://assets/background/bg_forest_1.png" type="Texture" id=5]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/background/tileset.png" type="Texture" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 96, 96, 0, 96, 0, 0, 96, 0 )
+points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
-[sub_resource type="TileSet" id=2]
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+
+[sub_resource type="TileSet" id=5]
 0/name = "tileset.png 0"
-0/texture = ExtResource( 6 )
+0/texture = ExtResource( 7 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 320, 0, 96, 96 )
+0/region = Rect2( 288, 0, 64, 64 )
 0/tile_mode = 0
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 1 )
-0/shape_one_way = false
-0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -33,6 +37,54 @@ points = PoolVector2Array( 96, 96, 0, 96, 0, 0, 96, 0 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
+1/name = "tileset.png 1"
+1/texture = ExtResource( 7 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 352, 0, 64, 64 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "tileset.png 2"
+2/texture = ExtResource( 7 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 416, 0, 64, 64 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+3/name = "tileset.png 3"
+3/texture = ExtResource( 7 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 480, 0, 64, 64 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+3/z_index = 0
 
 [node name="World" type="Node2D"]
 __meta__ = {
@@ -40,53 +92,69 @@ __meta__ = {
 }
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_base_offset = Vector2( 0.5, 0 )
 
 [node name="background" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.12, 1 )
+motion_mirroring = Vector2( 1345.01, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/background"]
-position = Vector2( 0, -152 )
-scale = Vector2( 0.34014, 0.631387 )
+scale = Vector2( 0.4, 0.694 )
 texture = ExtResource( 1 )
 centered = false
+region_rect = Rect2( 0, 0, 3575, 1182 )
 
 [node name="forest1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.25, 1 )
+motion_mirroring = Vector2( 1430, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/forest1"]
-scale = Vector2( 0.34014, 0.507614 )
+position = Vector2( 5.03516, 138.464 )
+scale = Vector2( 0.4, 0.709 )
 texture = ExtResource( 2 )
 centered = false
+region_rect = Rect2( 0, 0, 3575, 1182 )
 
 [node name="forest2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 1430, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/forest2"]
-scale = Vector2( 0.34014, 0.507614 )
+position = Vector2( 2.51758, 176.227 )
+scale = Vector2( 0.4, 0.7 )
 texture = ExtResource( 3 )
 centered = false
+region_rect = Rect2( 0, 0, 3575, 1182 )
 
 [node name="forest3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.75, 1 )
+motion_mirroring = Vector2( 1430, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/forest3"]
-scale = Vector2( 0.34014, 0.527919 )
-texture = ExtResource( 5 )
-centered = false
-
-[node name="forest4" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/forest4"]
-scale = Vector2( 0.34014, 0.527919 )
+position = Vector2( -2.51758, 188.815 )
+scale = Vector2( 0.402113, 0.7 )
 texture = ExtResource( 4 )
 centered = false
+region_rect = Rect2( 0, 0, 3575, 1182 )
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource( 2 )
+[node name="forest4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1430, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/forest4"]
+position = Vector2( 7.55249, 193.85 )
+scale = Vector2( 0.4, 0.7 )
+texture = ExtResource( 5 )
+centered = false
+region_rect = Rect2( 0, 0, 3575, 1182 )
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+
+[node name="ground2" type="TileMap" parent="."]
+tile_set = SubResource( 5 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 32
+cell_tile_origin = 2
+collision_bounce = 0.1
 format = 1
-tile_data = PoolIntArray( 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0 )
+tile_data = PoolIntArray( 6619136, 0, 0, 6619144, 1, 0, 6619152, 2, 0, 6619160, 3, 0, 6619168, 3, 0, 6619176, 3, 0, 6619184, 1, 0, 6619192, 0, 0, 6619200, 1, 0, 6619208, 3, 0, 6619216, 0, 0, 6619224, 1, 0, 6619232, 2, 0, 6619240, 3, 0, 6619248, 0, 0, 6619256, 1, 0, 6619264, 2, 0, 6619272, 3, 0, 6619280, 0, 0, 6619288, 1, 0 )
 
-[node name="Player" parent="." instance=ExtResource( 7 )]
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2( -56, -96 )
-anchor_mode = 0
-drag_margin_h_enabled = true
-drag_margin_left = 0.5
-drag_margin_right = 0.5
